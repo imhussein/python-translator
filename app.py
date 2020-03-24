@@ -25,8 +25,7 @@ def getWordMeaning(filename, errorMessage, wordNotExistsMessage):
             if difflib.SequenceMatcher(None, key, value).ratio() > 0.88:
                 keyValue = key
                 ask = input(f"Do you mean {key} Y / N ")
-                print(ask is "Y")
-                if ask == "Y":
+                if ask is "Y":
                     return data[keyValue]
                 else:
                     return wordNotExistsMessage
