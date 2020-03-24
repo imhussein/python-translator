@@ -3,6 +3,14 @@ import os
 import difflib
 
 
+def formatValue(value, key):
+    if type(value[key]) is list:
+        formatedValue = " ".join(value[key])
+        return formatedValue
+    else:
+        return value[key]
+
+
 def getWordMeaning(filename, errorMessage, wordNotExistsMessage):
     # Load Data
     data = ""
@@ -18,7 +26,7 @@ def getWordMeaning(filename, errorMessage, wordNotExistsMessage):
     # Check If Word Meaning Exists
     # Return Meaning
     if value in data:
-        return data[value]
+        return formatValue(data, value)
     else:
         keyValue = ""
         for key in data:
